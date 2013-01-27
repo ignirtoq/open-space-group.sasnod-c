@@ -20,5 +20,7 @@ typedef struct
 } VectorObservable;
 
 void PhysicalState_Update(PhysicalState *state, VectorObservable force, VectorObservable torque, double dt);
+
+Vector Physics_GetGravitationalForce(Vector pos, double mass);
  
 #endif
