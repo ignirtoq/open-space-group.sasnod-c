@@ -2,6 +2,8 @@
 #include <constants.h>
 #include <math.h>
 
+//Returns the air temperature at a given position above Earth's surface.
+//Vector3 position is relative to Earth's center.
 double NaiveNASAEnvironment_GetTemperature(Vector pos)
 {
 	double positionLength = Vector_GetLength(pos);
@@ -13,6 +15,10 @@ double NaiveNASAEnvironment_GetTemperature(Vector pos)
 		return (-205.05 + .00164 * 3.2808399 * (positionLength - RADIUS_OF_EARTH) - 32) * 5 / 9 + 273.15;
 }
 
+//Returns the air pressure at a given position above Earth's surface.
+//Vector3 position is relative to Earth's center.
+//Converted from NASA's website.  Crazy bastards use imperial units.
+//http://www.grc.nasa.gov/WWW/K-12/airplane/atmos.html
 double NaiveNASAEnvironment_GetPressure(Vector pos)
 {
 	double positionLength = Vector_GetLength(pos);
