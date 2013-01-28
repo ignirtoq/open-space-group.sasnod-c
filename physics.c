@@ -21,7 +21,7 @@ Vector Physics_GetDragForce(Vector pos, Vector vel, double crossSectionalArea, d
   return Vector_Scale(RotatingVelocity, -0.5 * env.density(pos) * dragCoef * crossSectionalArea * Velocity_GetLength(RotatingVelocity));
 }
 
-Vector BuoyantForce(Vector pos, double mass, double volume, IEnvironmentService env)
+Vector Physics_GetBuoyantForce(Vector pos, double mass, double volume, IEnvironmentService env)
 {
         return Vector_Scale(Physics_GetGravitationalForce(pos, mass), -2 * env.density(pos) * volume / (mass + env.density(pos) * volume));
 }
