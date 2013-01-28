@@ -2,6 +2,7 @@
 #define PHYSICS_H
 
 #include <geometry.h>
+#include <environments.h>
 
 typedef struct
 {
@@ -22,5 +23,7 @@ typedef struct
 void PhysicalState_Update(PhysicalState *state, VectorObservable force, VectorObservable torque, double dt);
 
 Vector Physics_GetGravitationalForce(Vector pos, double mass);
+Vector Physics_GetDragForce(Vector pos, Vector vel, double crossSectionalArea, double dragCoeff, IEnvironmentService env);
+Vector Physics_GetBuoyantForce(Vector pos, double mass, double volume, IEnvironmentService env);
  
 #endif
